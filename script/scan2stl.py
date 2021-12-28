@@ -136,6 +136,7 @@ if __name__ == "__main__":
 
         if os.path.exists(stl_name):
             logger.info('"%s" exists... Skip', os.path.basename(stl_name))
+            continue
 
         logger.info('Processing "%s"...', os.path.basename(path))
 
