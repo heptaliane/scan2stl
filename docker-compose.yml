@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  scan2stl:
+    container_name: "scan2stl"
+    build: "./"
+    command: python3 script/scan2stl.py
+    user: "scan2stl"
+    working_dir: /home/scan2stl/
+    volumes:
+      - ./script:/home/scan2stl/script
+      - ./img:/home/scan2stl/img
+      - ./stl:/home/scan2stl/model
+    environment:
+      - SCAN2STL_INPUT_DIR=img
+      - SCAN2STL_OUTPUT_DIR=model
+      - SCAN2STL_IMAGE_DPI=600
+      - SCAN2STL_BG_THRESHOLD=240
+      - SCAN2STL_MODEL_HEIGHT=10.0
+    tty: true
